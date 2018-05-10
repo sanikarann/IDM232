@@ -1,0 +1,208 @@
+* {
+    box-sizing: border-box;
+}
+
+* a {
+text-decoration: none;
+color: black;
+}
+
+/* FONTS */
+@font-face {
+	font-family: 'BebasNeueBold', 'BebasNeueReg';
+	src: "fonts/BebasNeueBold.ttf", "fonts/BebasNeueRegular.ttf";
+}
+
+@font-face {
+	font-family: 'GeoSansLight';
+	src: "fonts/geosanslight.ttf";
+}
+
+#logo-icon {
+	position: absolute;
+	left: 0;
+	margin-left: 1rem;
+	margin-top: -20px;
+}
+
+#search-bar {
+	padding: 6px;
+	width: 250px;
+	float: left;
+	font-family: 'Puritan', sans-serif;
+	letter-spacing: 1px;
+}
+
+#search-button-contain{
+    cursor: pointer;
+    float: left;
+    margin: 5px 0 0 -5px;
+    text-align: center;
+    width: 50px;
+}
+
+nav {
+	width: 100%;
+	background-color: black;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 25px;
+}
+
+
+
+#main-nav-ul {
+	margin: 0;
+	padding: 0;
+	float: right;
+}
+
+#main-nav-ul .main-nav-li {
+	list-style-type: none;
+	display: inline-block;
+}
+
+#main-nav-ul .main-nav-li a {
+	padding: 20px;
+	text-decoration: none;
+	color: white;
+	font-family: 'Puritan', verdana, helvetica, sans-serif;
+	font-size: 1.125rem;
+	text-transform: uppercase;
+}
+
+.main-nav-li a {
+	vertical-align: middle;
+}
+
+.main-nav-li a:hover {
+	background-color: #222222;
+}
+
+.selected-nav-link, .nav-link {
+	padding: 35px;
+}
+
+.selected-nav-link {
+	background-color: #91273F;
+}
+
+#top-recipe {
+	margin-top: 5rem;
+}
+
+.figure-container {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 5rem;
+}
+
+.top-figure-image {
+	width: 850px;
+	height: auto;
+	margin-top: 2rem;
+	margin-bottom: .85rem;
+}
+
+.top-image-text {
+	word-wrap: break-word;
+	width: 800px;
+	font-family: 'GeoSansLight', sans-serif;
+	font-size: 1.125rem;
+}
+
+.recipe-gallery-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-bottom: 5rem;
+	margin-top: 4rem;
+}
+
+/* RECIPES page first row */
+.recipe-gallery-image-top {
+	margin-top: 5rem;
+}
+
+
+/* white space underneath photos */
+.recipe-gallery-image {
+	margin-bottom: .85rem;
+}
+
+/* wrap text */
+.recipe-image-text {
+	word-wrap: break-word;
+	width: 500px;
+	font-family: 'GeoSansLight', sans-serif;
+	font-size: 1.125rem;
+}
+
+footer p {
+	font-size: .75rem;
+	text-align: center;
+	font-family: 'BebasNeueRegular', helvetica, sans-serif;
+	letter-spacing: 1px;
+}
+
+.figure-text {
+	font-family: 'BebasNeueBold', sans-serif;
+	font-size: 1.8rem;
+}
+
+.recipe-pg-image {
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+.recipe-pg-title {
+	font-family: 'BebasNeueBold', 'BebasNeueRegular', 'Gill Sans', sans-serif;
+	font-size: 5rem;
+	color: black;
+}
+
+.recipe-pg-desc {
+	margin: 0 2rem;
+	width: 75%;
+	line-height: 1.3;
+	font-family: 'GeoSansLight', helvetica, sans-serif;
+	font-size: 1.25rem;
+}
+
+.ingredients {
+	list-style-type: square;
+	font-family: 'BebasNeueRegular', 'Gill Sans', sans-serif;
+	font-size: 1.25rem;
+	line-height: 1.5;
+}
+
+.instructions {
+	width: 75%;
+	margin: 2rem;
+	font-family: 'GeoSansLight', 'Gill Sans', sans-serif;
+	font-size: 1.25rem;
+	line-height: 1.5;
+}
+
+#help-container {
+	display: flex;
+ 	height: 300px;
+}
+
+#help-wrapper {
+	margin-top: 300px;
+}
+
+#help {
+	font-family: 'Puritan', 'GeoSansLight', 'Gill Sans', sans-serif;
+	font-size: 1.8rem;		
+	margin: 0 auto;
+	width: 75%;
+	line-height: 1.4;
+}
+
+span {
+	color: #91273F;
+}
