@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>
+		No Results - IDM232
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link href="https://fonts.googleapis.com/css?family=Puritan:700" rel="stylesheet">
+	</head>
+<body>
+<nav>
+	<img id="logo-icon" src="img/food-icon.svg" alt="Site Icon" width="110">
+	<!-- LOGO NAME? -->
+	<ul id="main-nav-ul">
+		<form action="search.php" method="POST" id="form-search">
+		<input id="search-bar" type="text" placeholder="Search..." name="search">
+			<button type="submit" id="search-button-contain">
+				<img id="search-icon" src="img/search-icon.png" alt="search icon" width="20px">
+			</button>
+		</form>
+		<li class="main-nav-li"><a class="nav-link" href="index.php">Home</a></li>
+		<li class="main-nav-li"><a class="nav-link" href="recipes.html">Recipes</a></li>
+		<li class="main-nav-li"><a class="nav-link" href="help.html">Help</a></li>
+	</ul>
+</nav>
+
+
+<div id="help-container">
+	<div id="help-wrapper">
+		<div id="help">
+			There's nothing here.
+		</div>
+		<p id="no-result">Oops! Whatever you were trying to find doesn't exist.</p>
+	</div>
+</div>
+
+<div id="no-result-wrapper">
+	<div id="no-result-container">
+		<img src="img/unhappy.png" id="no-result-image">
+	</div>
+</div>
+
+<footer>
+	<hr>
+	<p>Rann &copy;2018</p>
+</footer>
+
+</body>
+</html>

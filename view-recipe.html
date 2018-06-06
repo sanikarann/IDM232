@@ -12,14 +12,16 @@
 <nav>
 	<img id="logo-icon" src="img/food-icon.svg" alt="Site Icon" width="110">
 	<!-- LOGO NAME? -->
-	<ul id="main-nav-ul">
-		<input id="search-bar" type="text" placeholder="Search..." name="search">		
-			<div id="search-button-contain">
+		<ul id="main-nav-ul">
+			<form action="search.php" method="POST" id="form-search">
+		<input id="search-bar" type="text" placeholder="Search..." name="search">
+			<button type="submit" id="search-button-contain">
 				<img id="search-icon" src="img/search-icon.png" alt="search icon" width="20px">
-			</div>
-		<li class="main-nav-li"><a class="nav-link" href="index.html">Home</a></li>
-		<li class="main-nav-li"><a class="nav-link" href="recipes">Recipes</a></li>
-		<li class="main-nav-li"><a class="nav-link" href="help.html">Help</a></li>
+			</button>
+		</form>
+		<li class="main-nav-li"><a class="nav-link" href="../index.php">Home</a></li>
+		<li class="main-nav-li"><a class="nav-link" href="../recipes.html">Recipes</a></li>
+		<li class="main-nav-li"><a class="nav-link" href="../help.html">Help</a></li>
 	</ul>
 </nav>
 
