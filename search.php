@@ -1,6 +1,9 @@
 <?php
 	require_once "includes/db.php";
 
+	$table = "projects";
+ 	$result = mysqli_query($connection, $query);
+
   if (!$result) {
     die ("Database query failed.");
   }
@@ -32,157 +35,62 @@
 			</button>
 		</form>
 		<li class="main-nav-li"><a class="nav-link" href="index.php">Home</a></li>
-		<li class="main-nav-li"><a class="selected-nav-link" href="recipes.html">Recipes</a></li>
+		<li class="main-nav-li"><a class="selected-nav-link" href="recipes.php">Recipes</a></li>
 		<li class="main-nav-li"><a class="nav-link" href="help.html">Help</a></li>
 	</ul>
 </nav>
 <!-- ADD FILTER SYSTEM -->
 
 
-
 <?php
+/*
+  $title = 'title';
+  $ingredients = 'ingredients';
+  $description = 'description';
+*/
+
 	if (isset($_POST['search'])) {
-		$search = mysqli_escape_string($connection, $_POST['search']); //make sure db is safe
-		$sql = "SELECT * FROM recipe_table WHERE title LIKE '%$search%' OR ingredients LIKE '%$search%' OR direction_01 LIKE '%$search%' OR direction_02 LIKE '%$search%' OR direction_03 LIKE '%$search%' OR direction_04 LIKE '%$search%' OR direction_05 LIKE '%$search%' OR direction_06 LIKE '%$search%'";
-		$result = mysqli_query($connection, $sql);
-		$queryResult = mysqli_num_rows($result);
+		$search = mysqli_real_escape_string($connection, $_POST['search']); //make sure db is safe
+		$query = "SELECT * FROM projects WHERE title LIKE '%$search%' OR ingredients LIKE '%$search%' OR description LIKE '%$search%'"; //keyword searches
+		$result = mysqli_query($connection, $query);
+		$queryResult = mysqli_num_rows($query);
 
-		echo "There are '.$queryResult.' result(s) found.";
+	/*	echo "There are '.$queryResult.' result(s) found."; */
 
-		if (queryResult > 0) {
-			while ($row = mysqli_fetch_assoc($result)) {
-				echo "<div class="recipe-gallery-container">
-			<figure class="figure-images">
-		<a href="view-recipe.html"><img class="recipe-gallery-image-top" id="recipe-gallery-image-top" src="img/placeholder-small.png" alt="placeholder"></a>
-			<a href="view-recipe.html"><figcaption class="figure-text">Title of recipe</figcaption></a>
-	</figure>
+		if ($queryResult > 0) {
 
-	<figure class="figure-images">
-		<a href="view-recipe.html"><img class="recipe-gallery-image-top" src="img/placeholder-small.png" alt="placeholder"></a>
-			<a href="view-recipe.html"><figcaption class="figure-text">Title of recipe</figcaption></a>
-	</figure>
-
-	<figure class="figure-images">
-		<a href="view-recipe.html"><img class="recipe-gallery-image-top" src="img/placeholder-small.png" alt="placeholder"></a>
-			<a href="view-recipe.html"><figcaption class="figure-text">Title of recipe</figcaption></a>
-	</figure>
-</div>
+			while ($row = mysqli_fetch_assoc($result)) { ?>
 
 <div class="recipe-gallery-container">
 	<figure class="figure-images">
-		<a href="view-recipe.html"><img class="recipe-gallery-image" src="img/placeholder-small.png" alt="placeholder"></a>
-			<a href="view-recipe.html"><figcaption class="figure-text">Title of recipe</figcaption></a>
-	</figure>
-
-	<figure class="figure-images">
-		<a href="view-recipe.html"><img class="recipe-gallery-image" src="img/placeholder-small.png" alt="placeholder"></a>
-			<a href="view-recipe.html"><figcaption class="figure-text">Title of recipe</figcaption></a>
-	</figure>
-
-	<figure class="figure-images">
-		<a href="view-recipe.html"><img class="recipe-gallery-image" src="img/placeholder-small.png" alt="placeholder"></a>
-			<a href="view-recipe.html"><figcaption class="figure-text">Title of recipe</figcaption></a>
+		<a href="view-recipe.php?id=<?php echo $row['id'] ?>">
+			<img class="recipe-gallery-image-top" id="recipe-gallery-image-top" src="<?php echo $row['img']; ?>" 
+			alt="<?php echo $row['title']; ?>
+		</a>
+			<a href="view-recipe.php?id=<?php echo $row['id'] ?>">
+				<figcaption class="figure-text">
+					<?php echo $row['title']; ?>
+				</figcaption>
+			</a>
 	</figure>
 </div>
-
-<div class="recipe-gallery-container">
-	<figure class="figure-images">
-		<a href="view-recipe.html"><img class="recipe-gallery-image" src="img/placeholder-small.png" alt="placeholder"></a>
-			<a href="view-recipe.html">
-				<figcaption class="figure-text">Title of recipe</figcaption></a>
-	</figure>
-
-	<figure class="figure-images">
-		<a href="view-recipe.html"><img class="recipe-gallery-image" src="img/placeholder-small.png" alt="placeholder"></a>
-			<a href="view-recipe.html"><figcaption class="figure-text">Title of recipe</figcaption></a>
-	</figure>
-
-	<figure class="figure-images">
-		<a href="view-recipe.html"><img class="recipe-gallery-image" src="img/placeholder-small.png" alt="placeholder"></a>
-			<a href="view-recipe.html"><figcaption class="figure-text">Title of recipe</figcaption></a>
-	</figure>
-</div>
-
-
-<div class="recipe-gallery-container">
-	<figure class="figure-images">
-		<a href="view-recipe.html"><img class="recipe-gallery-image" src="img/placeholder-small.png" alt="placeholder"></a>
-			<a href="view-recipe.html"><figcaption class="figure-text">Title of recipe</figcaption></a>
-	</figure>
-
-	<figure class="figure-images">
-		<a href="view-recipe.html"><img class="recipe-gallery-image" src="img/placeholder-small.png" alt="placeholder"></a>
-			<a href="view-recipe.html"><figcaption class="figure-text">Title of recipe</figcaption></a>
-	</figure>
-
-	<figure class="figure-images">
-		<a href="view-recipe.html"><img class="recipe-gallery-image" src="img/placeholder-small.png" alt="placeholder"></a>
-			<a href="view-recipe.html"><figcaption class="figure-text">Title of recipe</figcaption></a>
-	</figure>
-</div>
-
-<div class="recipe-gallery-container">
-	<figure class="figure-images">
-		<a href="view-recipe.html"><img class="recipe-gallery-image" src="img/placeholder-small.png" alt="placeholder"></a>
-			<a href="view-recipe.html"><figcaption class="figure-text">Title of recipe</figcaption></a>
-	</figure>
-
-	<figure class="figure-images">
-		<a href="view-recipe.html"><img class="recipe-gallery-image" src="img/placeholder-small.png" alt="placeholder"></a>
-			<a href="view-recipe.html"><figcaption class="figure-text">Title of recipe</figcaption></a>
-	</figure>
-
-	<figure class="figure-images">
-		<a href="view-recipe.html"><img class="recipe-gallery-image" src="img/placeholder-small.png" alt="placeholder"></a>
-			<a href="view-recipe.html"><figcaption class="figure-text">Title of recipe</figcaption></a>
-	</figure>
-</div>
-
-<div class="recipe-gallery-container">
-	<figure class="figure-images">
-		<a href="view-recipe.html"><img class="recipe-gallery-image" src="img/placeholder-small.png" alt="placeholder"></a>
-			<a href="view-recipe.html"><figcaption class="figure-text">Title of recipe</figcaption></a>
-	</figure>
-
-	<figure class="figure-images">
-		<a href="view-recipe.html"><img class="recipe-gallery-image" src="img/placeholder-small.png" alt="placeholder"></a>
-			<a href="view-recipe.html"><figcaption class="figure-text">Title of recipe</figcaption></a>
-	</figure>
-
-	<figure class="figure-images">
-		<a href="view-recipe.html"><img class="recipe-gallery-image" src="img/placeholder-small.png" alt="placeholder"></a>
-			<a href="view-recipe.html"><figcaption class="figure-text">Title of recipe</figcaption></a>
-	</figure>
-</div>";
-			}
-		} else {
-			echo "No results found.";
-		}
+            <?php }
 	}
+}
+	 else {
+			echo "No results found."; //try linking to 'no-results'?
+		}
 ?>
 
 
+<?php
+        mysqli_free_result($result);
+      ?>
+      <?php
+        mysqli_close($connection);
+      ?>
 
 
-<!--
- <?php
-        while($row = mysqli_fetch_assoc($result)) { 
-    ?>
-        <div class="project">
-                <figure>
-                    <img src="<?php echo $row['image']; ?>" alt="<?php echo $row['name']; ?>">
-                    <figcaption>
-                        <?php echo $row['name']; ?>
-                    </figcaption>
-                </figure>
-                <p>
-                    <?php echo $row['description']; ?>
-                </p>
-            </div>
-            <?php
-                }
-            ?>
-        </div>
--->
+
 </body>
 </html>
